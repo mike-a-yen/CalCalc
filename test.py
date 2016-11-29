@@ -9,7 +9,7 @@ class TestMethods(unittest.TestCase):
         self.assertEqual(calculate('0-1'),'-1')
 
     def test_div_by_zero(self):
-        self.assertEqual(calculate('1/0'),'1/0')
+        self.assertEqual(calculate('1/0'),'infinity^~')
 
     def test_multiply(self):
         self.assertEqual(calculate('10*10'),'100')
