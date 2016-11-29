@@ -2,7 +2,6 @@ import argparse
 import requests
 import xml.etree.ElementTree as ET
 
-xmlparser = ET.XMLParser(encoding="utf-8")
 
 def make_query(query):
     base = 'http://api.wolframalpha.com/v2/query?'
@@ -11,6 +10,7 @@ def make_query(query):
     return response.content
 
 def calculate(query):
+    xmlparser = ET.XMLParser(encoding="utf-8")
     tree = ET.fromstring(make_query(query),parser=xmlparser)
     for pod in tree.findall('pod'):
         if pod.attrib.get('id') == 'Result':
